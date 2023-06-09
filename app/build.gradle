@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+
 apply plugin: 'com.facebook.testing.screenshot'
+
 android {
     namespace 'com.example.facebooksampletrial2'
     compileSdk 33
@@ -10,11 +12,13 @@ android {
     defaultConfig {
         applicationId "com.example.facebooksampletrial2"
         minSdk 24
-        targetSdk 33
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.facebooksampletrial2.MyTestRunner"
     }
 
     buildTypes {
@@ -33,17 +37,18 @@ android {
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
 
-    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
 
     implementation 'com.facebook.litho:litho-core:0.43.0'
     implementation 'com.facebook.litho:litho-widget:0.43.0'
@@ -51,6 +56,6 @@ dependencies {
 }
 
 screenshots {
-    referenceDir = "$projectDir/build/reports/screenshots"
-    pythonExecutable 'python3'
+    referenceDir = "$projectDir/pics/screenshots"
+    pythonExecutable 'python'
 }

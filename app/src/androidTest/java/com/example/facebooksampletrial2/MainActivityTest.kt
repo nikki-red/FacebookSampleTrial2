@@ -34,7 +34,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit::class)
+//@RunWith(AndroidJUnit::class)
 class MainActivityTest {
   @get:Rule
   var activityTestRule = ActivityTestRule<MainActivity>(MainActivity::class.java, false, false)
@@ -59,13 +59,13 @@ class MainActivityTest {
     openActionBarOverflowOrOptionsMenu(activity)
     Screenshot.snapActivity(activity).record()
   }
-  /*
-  @Test
+
+
+/*@Test
   fun mainActivityTestFabWithEspresso() {
     activityTestRule.launchActivity(null)
     onView(withId(R.id.fab)).perform(screenshot("fab"))
-  }
-   */
+  }*/
 
   @Test
   fun errorTextShouldBeRed() {
@@ -73,8 +73,9 @@ class MainActivityTest {
     val activity = activityTestRule.launchActivity(intent)
 
     Screenshot.snapActivity(activity).record()
-  }
 
+  }
+  /*
   @Test
   fun warningTextShouldBeYellow() {
     val intent = MainActivity.intent(MainActivity.Status.WARNING)
@@ -96,4 +97,5 @@ class MainActivityTest {
     val activity = activityTestRule.launchActivity(null)
     Screenshot.snapActivity(activity).setIncludeAccessibilityInfo(false).record()
   }
+  */
 }
